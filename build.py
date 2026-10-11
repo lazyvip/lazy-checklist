@@ -154,10 +154,10 @@ main{padding:26px 0 90px}
 /* hero */
 .hero{padding:22px 0 6px}
 .hero .kick{font-size:12.5px;color:var(--green);letter-spacing:.18em;font-weight:600}
-.hero h2{font-family:var(--serif);font-size:38px;line-height:1.26;margin:12px 0 12px;font-weight:900;letter-spacing:.01em}
+.hero h1{font-family:var(--serif);font-size:38px;line-height:1.26;margin:12px 0 12px;font-weight:900;letter-spacing:.01em}
 @supports(-webkit-background-clip:text){
-.hero h2{background:linear-gradient(120deg,var(--ink) 30%,var(--green-deep));-webkit-background-clip:text;background-clip:text;color:transparent}}
-@media(prefers-color-scheme:dark){.hero h2{background:linear-gradient(120deg,var(--ink) 30%,var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}}
+.hero h1{background:linear-gradient(120deg,var(--ink) 30%,var(--green-deep));-webkit-background-clip:text;background-clip:text;color:transparent}}
+@media(prefers-color-scheme:dark){.hero h1{background:linear-gradient(120deg,var(--ink) 30%,var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}}
 .hero p{color:var(--body);font-size:15px}
 .stats{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 4px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 18px;min-width:104px;box-shadow:var(--shadow-1);transition:transform .2s ease}
@@ -274,7 +274,7 @@ footer a{color:var(--body)}
 /* mobile tabbar */
 .tabbar{display:none}
 @media(max-width:640px){
-.hero h2{font-size:26px}
+.hero h1{font-size:26px}
 main{padding-bottom:130px}
 .top-nav{display:none}
 .brand .sub{display:none}
@@ -395,7 +395,7 @@ def build():
             + f"""<main><div class="wrap">
 <section class="hero reveal">
 <div class="kick">HOW TO LIVE BETTER · 衍生站</div>
-<h2>别整本读完，<br>先做最划算的那几件。</h2>
+<h1>别整本读完，<br>先做最划算的那几件。</h1>
 <p>全书 {total} 条建议都标了成本、毅力和证据等级。这里把它们拆开，让你按「懒人性价比」挑着做。</p>
 <div class="stats">
 <div class="stat"><b data-count="{total}">0</b><span>条建议</span></div>
@@ -467,7 +467,7 @@ def build():
 <div class="crumbs"><a href="/c/{c["nn"]}.html">第 {c["num"]:02d} 节 · {esc(c["title"])}</a> / 条目 {c["num"]}.{e["num"]}</div>
 <div class="evhead">
 <div class="evbadge {lv_color}"><div><div class="big">{esc(e["level"] or "—")}</div><div class="evlbl">证据等级</div></div></div>
-<div class="etitle"><h2>{esc(e["title"])}</h2><div class="chips">{chips or level_chip(e["level"])}</div></div>
+<div class="etitle"><h1 style="font-family:var(--serif);font-size:27px;line-height:1.4;margin:2px 0 12px">{esc(e["title"])}</h1><div class="chips">{chips or level_chip(e["level"])}</div></div>
 <span class="chk"><button data-ck="{e["id"]}" onclick="toggleDone('{e["id"]}',this)">打勾</button></span>
 </div>
 {"".join(blocks)}
@@ -493,7 +493,7 @@ def build():
             + head
             + f"""<main><div class="wrap">
 <div class="chaphead reveal"><div class="no">{c["num"]:02d}</div>
-<div><h2>{esc(c["title"])}</h2><div class="meta">{len(es)} 条建议 · 证据 A {sum(1 for e in es if e["level"]=="A")} 条</div></div></div>
+<div><h1 style="font-family:var(--serif);font-size:25px;margin:2px 0 4px">{esc(c["title"])}</h1><div class="meta">{len(es)} 条建议 · 证据 A {sum(1 for e in es if e["level"]=="A")} 条</div></div></div>
 {intro}{cards}
 </div></main>""" + foot + TABBAR
             + f'<script>window.__TOTAL__={total};</script><script src="/s/app.js" defer></script></body></html>',
