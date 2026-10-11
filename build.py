@@ -521,8 +521,12 @@ function importDone(input){const f=input.files[0];if(!f)return;const r=new FileR
     sm.append("</urlset>")
     (DIST / "sitemap.xml").write_text("\n".join(sm), encoding="utf8")
     (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}/sitemap.xml\n", encoding="utf8")
+    bing = ROOT / "BingSiteAuth.xml"
+    if bing.exists():
+        shutil.copy(bing, DIST / "BingSiteAuth.xml")
     (DIST / "_redirects").write_text(
         "# Netlify Pretty URLs 会改写带大写/后缀的路径，平台验证文件必须加 200! 规则\n"
+        "/BingSiteAuth.xml /BingSiteAuth.xml 200!\n"
         "# /baidu_verify_xxx.html /baidu_verify_xxx.html 200!\n", encoding="utf8")
     (DIST / "netlify.toml").write_text(
         '[build]\n  command = "python3 build.py"\n  publish = "dist"\n', encoding="utf8")
