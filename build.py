@@ -524,6 +524,10 @@ function importDone(input){const f=input.files[0];if(!f)return;const r=new FileR
     bing = ROOT / "BingSiteAuth.xml"
     if bing.exists():
         shutil.copy(bing, DIST / "BingSiteAuth.xml")
+    # IndexNow 密钥文件：必应自动推送协议的站点所有权验证
+    inow = ROOT / "IndexNow.key"
+    if inow.exists():
+        shutil.copy(inow, DIST / f"{inow.read_text(encoding='utf8').strip()}.txt")
     (DIST / "_redirects").write_text(
         "# Netlify Pretty URLs 会改写带大写/后缀的路径，平台验证文件必须加 200! 规则\n"
         "/BingSiteAuth.xml /BingSiteAuth.xml 200!\n"
