@@ -15,7 +15,7 @@ ROOT = Path(__file__).parent
 CONTENT = ROOT / "content" / "book"
 DIST = ROOT / "dist"
 
-SITE_TITLE = "懒人性价比清单"
+SITE_TITLE = "性价比人生·懒人清单"
 SITE_SUB = "0 元 · 不费毅力 · 收益大 · 证据硬"
 UPSTREAM = "https://github.com/eternity4719/HowToLiveBetter"
 REPO_FILE = UPSTREAM + "/blob/main/book"
