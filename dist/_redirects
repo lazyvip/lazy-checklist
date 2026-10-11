@@ -1,0 +1,2 @@
+# Netlify Pretty URLs 会改写带大写/后缀的路径，平台验证文件必须加 200! 规则
+# /baidu_verify_xxx.html /baidu_verify_xxx.html 200!

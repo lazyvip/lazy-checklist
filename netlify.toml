@@ -1,0 +1,5 @@
+# dist 已预构建并提交，Netlify 零构建直接发布（避免服务器端 Python 环境差异）
+# 本地更新流程：python3 build.py && git add -A && git commit && git push
+[build]
+  command = "echo dist prebuilt"
+  publish = "dist"
